@@ -17,6 +17,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->btnNum7, SIGNAL(clicked()), this, SLOT(btnNumClicked()));
     connect(ui->btnNum8, SIGNAL(clicked()), this, SLOT(btnNumClicked()));
     connect(ui->btnNum9, SIGNAL(clicked()), this, SLOT(btnNumClicked()));
+
+    connect(ui->btnPlus, SIGNAL(clicked()), this, SLOT(btnBinaryOperatorClicked()));
+    connect(ui->btnMinus, SIGNAL(clicked()), this, SLOT(btnBinaryOperatorClicked()));
+    connect(ui->btnMultiple, SIGNAL(clicked()), this, SLOT(btnBinaryOperatorClicked()));
+    connect(ui->btnDivide, SIGNAL(clicked()), this, SLOT(btnBinaryOperatorClicked()));
+
 }
 
 MainWindow::~MainWindow()
@@ -26,27 +32,57 @@ MainWindow::~MainWindow()
 
 void MainWindow::btnNumClicked()
 {
-    QString str = ui->display->text();
-    str += qobject_cast<QPushButton *>(sender())->text();
+    QString digit = qobject_cast<QPushButton *>(sender())->text();
 
-    ui->display->setText(str);
-    ui->statusbar->showMessage(qobject_cast<QPushButton*>(sender())->text() + "btn clicked");
+    if (digit == "0" && operand == "0")
+        digit = "";
+    if (operand == "0" && digit != "0")
+        operand = "";
+
+    operand += digit;
+
+    ui->display->setText(operand);
+
+}
+
+void MainWindow::btnBinaryOperatorClicked()
+{
+    if (operand != "") {
+        operands.push_back(operand);
+        operand = "";
+    }
+
+
 
 }
 
 void MainWindow::on_btnPeriod_clicked()
 {
-    QString str = ui->display->text();
-    if (!str.contains("."))
-        str += qobject_cast<QPushButton *>(sender())->text();
-    ui->display->setText(str);
+    if (!operand.contains("."))
+        operand += qobject_cast<QPushButton *>(sender())->text();
+    ui->display->setText(operand);
 }
 
 
 void MainWindow::on_btnDelete_clicked()
 {
-    QString str = ui->display->text();
-    str = str.left(str.length() - 1);
-    ui->display->setText(str);
+    operand = operand.left(operand.length() - 1);
+    ui->display->setText(operand);
+}
+
+
+void MainWindow::on_btnClear_clicked()
+{
+    operand.clear();
+    ui->display->setText(operand);
+}
+
+
+void MainWindow::on_btnEqual_clicked()
+{
+    if (operand != "") {
+        operands.push_back(operand);
+        operand = "";
+    }
 }
 
