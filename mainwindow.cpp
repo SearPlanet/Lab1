@@ -42,3 +42,11 @@ void MainWindow::on_btnPeriod_clicked()
     ui->display->setText(str);
 }
 
+
+void MainWindow::on_btnDelete_clicked()
+{
+    QString str = ui->display->text();
+    str = str.left(str.length() - 1);
+    ui->display->setText(str);
+}
+
