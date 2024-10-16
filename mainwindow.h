@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QStack>
 #include <QKeyEvent>
+#include <QMap>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,6 +26,7 @@ public:
     QString opcode;
     QStack<QString> operands;
     QStack<QString> opcodes;
+    QMap<int, QPushButton *> digitBTNs;
 
     QString calculation(bool *ok = NULL);
 
