@@ -2,8 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include<QLabel>
-#include<QStack>
+#include <QLabel>
+#include <QStack>
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -29,6 +30,7 @@ public:
 private slots:
     void btnNumClicked();
     void btnBinaryOperatorClicked();
+    void btnUnaryOperatorClicked();
 
     void on_btnPeriod_clicked();
 
@@ -37,6 +39,8 @@ private slots:
     void on_btnClear_clicked();
 
     void on_btnEqual_clicked();
+
+    virtual void keyPressEvent(QKeyEvent *event);
 
 private:
     Ui::MainWindow *ui;
