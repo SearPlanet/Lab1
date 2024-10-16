@@ -20,7 +20,11 @@ public:
     ~MainWindow();
 
     QString operand;
+    QString opcode;
     QStack<QString> operands;
+    QStack<QString> opcodes;
+
+    QString calculation(bool *ok = NULL);
 
 private slots:
     void btnNumClicked();
