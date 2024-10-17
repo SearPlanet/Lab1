@@ -25,7 +25,7 @@ QPushButton:hover{
 	color:black;
 }
 QPushButton:pressed{
-	background-color: red;
+	background-color: lightblue;
 	color:black;
 }
 QLineEdit{

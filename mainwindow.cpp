@@ -138,6 +138,7 @@ void MainWindow::btnUnaryOperatorClicked()
         if (op == "%")
             result /= 100.0;
         else if (op == "1/x")
+
             result = 1 / result;
         else if (op == "x^2")
             result *= result;
@@ -247,11 +248,6 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 }
 
-
-void MainWindow::on_btnSign_clicked()//点击切换正负号
-{
-
-}
 
 
 void MainWindow::on_btnClear_clicked()//计算器CE键
