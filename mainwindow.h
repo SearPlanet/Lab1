@@ -28,7 +28,12 @@ public:
     QStack<QString> opcodes;
     QMap<int, QPushButton *> digitBTNs;
 
+    double lastResult = 0.0;  // 用来存储上次运算结果
+
+    bool hasCalculated = 0;
+
     QString calculation(bool *ok = NULL);
+
 
 private slots:
     void btnNumClicked();
@@ -44,6 +49,10 @@ private slots:
     void on_btnEqual_clicked();
 
     virtual void keyPressEvent(QKeyEvent *event);
+
+    void on_btnSign_clicked();
+
+    void on_btnClearAl_clicked();
 
 private:
     Ui::MainWindow *ui;
