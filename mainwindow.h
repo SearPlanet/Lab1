@@ -50,8 +50,6 @@ private slots:
 
     virtual void keyPressEvent(QKeyEvent *event);
 
-    void on_btnSign_clicked();
-
     void on_btnClearAl_clicked();
 
 private:

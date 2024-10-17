@@ -138,7 +138,6 @@ void MainWindow::btnUnaryOperatorClicked()
         if (op == "%")
             result /= 100.0;
         else if (op == "1/x")
-
             result = 1 / result;
         else if (op == "x^2")
             result *= result;
@@ -240,10 +239,6 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         ui->btnPercentage->animateClick();
     if (event->key() == Qt::Key_Period)
         ui->btnPeriod->animateClick();
-
-
-
-
 
 
 }
